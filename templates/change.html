@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="four columns">
+        <form method="get">
+            <label for="curr1">Währung 1: </label>
+            <input type="text" name="curr1" id="curr1" value="{% if curr1 != None %}{{ curr1 }}{% endif %}" />
+            <label for="curr2">Währung 2: </label>
+            <input type="text" name="curr2" id="curr2" value="{% if curr2 != None %}{{ curr2 }}{% endif %}" />
+
+            <br />
+
+            <label for="step">Schritt: </label>
+            <input type="text" name="step" id="step" value="{% if step != None %}{{ step }}{% endif %}" />
+            <label for="amount">Länge der Tabelle: </label>
+            <input type="text" name="amount" id="amount" value="{% if amount != None %}{{ amount }}{% endif %}" />
+
+            <br />
+
+            <label for="rate">Umrechnungskurs: </label>
+            <input type="text" name="rate" id="rate" value="{% if rate != None %}{{ rate }}{% endif %}" />
+
+            <br />
+
+            <input type="submit" value="Formular abschicken!" />
+        </form>
+    </div>
+
+    <div class="four columns">
+        <table class="u-full-width">
+            <thead>
+                <tr>
+                    <th>{{ curr1 }}</th>
+                    <th>{{ curr2 }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for content in table %}
+                <tr>
+                    <td>{{ content[0] }}</td>
+                    <td>{{ content[1] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="four columns">
+         <table class="u-full-width">
+            <thead>
+                <tr>
+                    <th>{{ curr2 }}</th>
+                    <th>{{ curr1 }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for content in table_rev %}
+                <tr>
+                    <td>{{ content[0] }}</td>
+                    <td>{{ content[1] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

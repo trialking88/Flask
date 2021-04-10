@@ -1,0 +1,35 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+    <h2>{{ person[1] }}, {{ person[0] }}</h2>
+    {% for item in items %}
+        <p>{{ item.name }} (Anzahl: {{ item.amount }} mal)</p>
+    {% endfor %}
+
+    <div class="row">
+        <div class="six columns">
+            <table class="u-full-width">
+                <thead>
+                    <tr>
+                        <th>Überschrift 1</th>
+                        <th>Überschrift 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Zelle 1</td>
+                        <td>Zelle 2</td>
+                    </tr>
+                    <tr>
+                        <td>123456</td>
+                        <td>ABCDEF</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="six columns">
+            2. Bereich
+        </div>
+    </div>
+
+{% endblock %}
